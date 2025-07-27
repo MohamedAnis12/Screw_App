@@ -10,6 +10,9 @@ class ScrewApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: HomeView());
+    return MaterialApp(
+      home: HomeView(),
+      theme: ThemeData(fontFamily: "Playpen Sans Arabic"),
+    );
   }
 }
