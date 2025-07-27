@@ -10,6 +10,7 @@ class AddPlayersView extends StatelessWidget {
     return Scaffold(
       body: AddPlayerViewBody(),
       backgroundColor: mainColor,
+
     );
   }
 }
