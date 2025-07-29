@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:screw/constants.dart';
 import 'package:screw/views/winers_view.dart';
 import 'package:screw/widgets/RoundPlayerCard.dart';
 import 'package:screw/widgets/customFloatingActionButton.dart';
+import 'package:screw/widgets/custom_bottom_sheet.dart';
 import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text.dart';
 
@@ -55,7 +57,17 @@ class AddRoundViewBody extends StatelessWidget {
         Positioned(
           right: 15,
           bottom: MediaQuery.of(context).size.height * .20,
-          child: CustomFloatingActionButton(onPressed: () {}),
+          child: CustomFloatingActionButton(
+            onPressed: () {
+              showModalBottomSheet(
+                backgroundColor: mainColor,
+                context: context,
+                builder: (context) {
+                  return CustomBottomSheet();
+                },
+              );
+            },
+          ),
         ),
       ],
     );
