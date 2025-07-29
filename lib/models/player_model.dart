@@ -1,6 +1,14 @@
-class PlayerModel {
-  String name;
-  List<int> score = [0];
+import 'package:hive/hive.dart';
 
-  PlayerModel({required this.name});
+part 'player_model.g.dart';
+
+@HiveType(typeId: 0)
+class PlayerModel extends HiveObject {
+  @HiveField(0)
+  String name;
+  @HiveField(1)
+  int score;
+  @HiveField(2)
+  int round;
+  PlayerModel({required this.name,this.score=0,this.round=0});
 }
