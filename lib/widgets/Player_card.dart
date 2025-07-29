@@ -13,7 +13,7 @@ class PlayerCard extends StatelessWidget {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.white,
+          color: Color(0xff4f4bd9),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -21,7 +21,7 @@ class PlayerCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomText(text: "name", fontSize: 16, color: Colors.black),
+              CustomText(text: "name", fontSize: 16, color: Colors.white),
               CustomeIcon()
             ],
           ),

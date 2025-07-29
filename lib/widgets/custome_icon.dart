@@ -10,7 +10,7 @@ class CustomeIcon extends StatelessWidget {
       child: SizedBox(
         height: 50,
         width: 50,
-        child: Icon(Icons.delete, color: Colors.black),
+        child: Icon(Icons.delete, color: Colors.white),
       ),
     );
   }
