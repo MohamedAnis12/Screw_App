@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:screw/constants.dart';
 import 'package:screw/widgets/Player_card.dart';
-import 'package:screw/widgets/custom_buttom.dart';
+import 'package:screw/widgets/custom_bottom_sheet.dart';
+import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text.dart';
 
 class AddPlayerViewBody extends StatelessWidget {
@@ -32,7 +33,7 @@ class AddPlayerViewBody extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              CustomButtom(text: "ابدا الجوله"),
+              CustomButton(text: "ابدا الجوله"),
               SizedBox(height: 40),
             ],
           ),
@@ -43,7 +44,9 @@ class AddPlayerViewBody extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(200),
               ),
-              onPressed: () {},
+              onPressed: () {
+                bottomsheet(context);
+              },
               backgroundColor: mainColor,
               child: Icon(Icons.add, color: Colors.white),
             ),
@@ -51,5 +54,15 @@ class AddPlayerViewBody extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<dynamic> bottomsheet(BuildContext context) {
+    return showModalBottomSheet(
+                backgroundColor: mainColor,
+                context: context,
+                builder: (context) {
+                  return CustomBottomSheet();
+                },
+              );
   }
 }

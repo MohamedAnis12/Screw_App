@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:screw/views/add_players_view.dart';
-import 'package:screw/widgets/custom_buttom.dart';
+import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -15,7 +15,7 @@ class HomeViewBody extends StatelessWidget {
           CustomText(text: "سكرووو", fontSize: 80,color: Colors.white,),
           SizedBox(height: 320),
 
-          CustomButtom(
+          CustomButton(
             text: "ابدا اللعب",
             onTap: () {
               Navigator.push(
