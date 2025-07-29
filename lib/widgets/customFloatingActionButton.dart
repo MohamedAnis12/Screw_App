@@ -9,7 +9,7 @@ class CustomFloatingActionButton extends StatelessWidget {
     return FloatingActionButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(200)),
       onPressed: onPressed,
-      backgroundColor: Color(0xff4f4bd9),
+      backgroundColor: supColor,
       splashColor: Colors.amber,
       child: Icon(Icons.add, color: Colors.white),
     );

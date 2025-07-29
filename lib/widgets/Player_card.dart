@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:screw/constants.dart';
 import 'package:screw/widgets/custom_text.dart';
 import 'package:screw/widgets/custome_icon.dart';
 
@@ -13,7 +14,7 @@ class PlayerCard extends StatelessWidget {
         height: 60,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Color(0xff4f4bd9),
+          color: supColor,
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),

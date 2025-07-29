@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:screw/constants.dart';
 import 'package:screw/widgets/custom_text.dart';
 
 class CustomRoundPlayerCard extends StatelessWidget {
@@ -10,7 +11,7 @@ class CustomRoundPlayerCard extends StatelessWidget {
       margin: EdgeInsets.all(5),
       height: 60,
       decoration: BoxDecoration(
-        color: Color(0xff4f4bd9),
+        color: supColor,
 
         borderRadius: BorderRadius.circular(16),
       ),
