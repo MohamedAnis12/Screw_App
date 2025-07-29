@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:screw/views/winers_view.dart';
 import 'package:screw/widgets/RoundPlayerCard.dart';
 import 'package:screw/widgets/customFloatingActionButton.dart';
 import 'package:screw/widgets/custom_button.dart';
@@ -34,7 +35,19 @@ class AddRoundViewBody extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 40),
-              CustomButton(text: "انهاء اللعبه"),
+              CustomButton(
+                text: "انهاء اللعبه",
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return WinersView();
+                      },
+                    ),
+                  );
+                },
+              ),
               SizedBox(height: 40),
             ],
           ),
@@ -42,15 +55,9 @@ class AddRoundViewBody extends StatelessWidget {
         Positioned(
           right: 15,
           bottom: MediaQuery.of(context).size.height * .20,
-          child: CustomFloatingActionButton(
-            onPressed: (){
-
-            },
-          ),
+          child: CustomFloatingActionButton(onPressed: () {}),
         ),
       ],
     );
   }
 }
-
-
