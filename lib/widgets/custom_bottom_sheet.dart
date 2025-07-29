@@ -25,7 +25,15 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             child: CustomTextFormField(hint: "name"),
           ),
           SizedBox(height: 20),
-          CustomButton(text: "اضافه اللاعب"),
+          CustomButton(
+            text: "اضافه اللاعب",
+            onTap: () {
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+                Navigator.pop(context);
+              }
+            },
+          ),
         ],
       ),
     );
