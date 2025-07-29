@@ -24,6 +24,7 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             padding: const EdgeInsets.all(8.0),
             child: CustomTextFormField(hint: "name"),
           ),
+          SizedBox(height: 20),
           CustomButton(text: "اضافه اللاعب"),
         ],
       ),

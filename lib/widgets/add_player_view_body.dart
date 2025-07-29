@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:screw/constants.dart';
-import 'package:screw/widgets/Player_card.dart';
-import 'package:screw/widgets/custom_bottom_sheet.dart';
+import 'package:screw/widgets/Custom_playersCard_listview.dart';
+import 'package:screw/widgets/customFloatingActionButton.dart';
 import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text.dart';
 
@@ -21,17 +20,7 @@ class AddPlayerViewBody extends StatelessWidget {
                 fontSize: 60,
                 color: Colors.white,
               ),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: 10,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: PlayerCard(),
-                    );
-                  },
-                ),
-              ),
+              Expanded(child: CustomPlayerscardListview()),
               SizedBox(height: 40),
               CustomButton(text: "ابدا الجوله"),
               SizedBox(height: 40),
@@ -40,29 +29,10 @@ class AddPlayerViewBody extends StatelessWidget {
           Positioned(
             right: 15,
             bottom: MediaQuery.of(context).size.height * .20,
-            child: FloatingActionButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(200),
-              ),
-              onPressed: () {
-                bottomsheet(context);
-              },
-              backgroundColor: mainColor,
-              child: Icon(Icons.add, color: Colors.white),
-            ),
+            child: CustomFloatingActionButton(),
           ),
         ],
       ),
     );
-  }
-
-  Future<dynamic> bottomsheet(BuildContext context) {
-    return showModalBottomSheet(
-                backgroundColor: mainColor,
-                context: context,
-                builder: (context) {
-                  return CustomBottomSheet();
-                },
-              );
   }
 }
