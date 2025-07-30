@@ -36,7 +36,7 @@ class AddRoundViewBody extends StatelessWidget {
                   },
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 50),
               CustomButton(
                 text: "انهاء اللعبه",
                 onTap: () {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:screw/constants.dart';
 import 'package:screw/widgets/Custom_winers_card.dart';
+import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text.dart';
 
 class WinersViewBody extends StatelessWidget {
@@ -27,6 +28,12 @@ class WinersViewBody extends StatelessWidget {
             },
           ),
         ),
+        CustomButton(text: "العب تاني ",onTap: (){
+          Navigator.pop(context);
+          Navigator.pop(context);
+          Navigator.pop(context);
+        },),
+        SizedBox(height: 150,)
       ],
     );
   }
