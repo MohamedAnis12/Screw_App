@@ -1,18 +1,20 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screw/cubits/add_player_cubit/add_player_cubit.dart';
+import 'package:screw/models/player_model.dart';
 import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text_form_field.dart';
 
 class CustomForm extends StatefulWidget {
   const CustomForm({super.key, required this.isLoading});
   final bool isLoading;
-
   @override
   State<CustomForm> createState() => _CustomFormState();
 }
 
 class _CustomFormState extends State<CustomForm> {
   final GlobalKey<FormState> formKey = GlobalKey();
-
+  String? name;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,15 +25,23 @@ class _CustomFormState extends State<CustomForm> {
           SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: CustomTextFormField(hint: "name"),
+            child: CustomTextFormField(
+              hint: "name",
+              onChanged: (value) {
+                name = value;
+              },
+            ),
           ),
           SizedBox(height: 20),
           CustomButton(
+            isLoading: widget.isLoading,
             text: "اضافه اللاعب",
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                Navigator.pop(context);
+                PlayerModel player = PlayerModel(name: name!);
+                print(name);
+                BlocProvider.of<AddPlayerCubit>(context).AddPlayer(player);
               }
             },
           ),

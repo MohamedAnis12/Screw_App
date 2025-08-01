@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:meta/meta.dart';
 import 'package:screw/constants.dart';
 import 'package:screw/models/player_model.dart';
 
@@ -12,6 +12,7 @@ class AddPlayerCubit extends Cubit<AddPlayerState> {
     emit(AddPlayerLoading());
     try {
       var playerBox = Hive.box<PlayerModel>(kmodelBox);
+      print("addplayersuccess");
       emit(AddPlayerSuccess());
       await playerBox.add(player);
     } catch (e) {

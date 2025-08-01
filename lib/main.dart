@@ -11,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Bloc.observer=SimpleBlocObserver();
-  await Hive.openBox(kmodelBox);
+  await Hive.openBox<PlayerModel>(kmodelBox);
   Hive.registerAdapter(PlayerModelAdapter());
   runApp(ScrewApp());
 }
