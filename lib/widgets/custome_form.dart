@@ -6,8 +6,7 @@ import 'package:screw/widgets/custom_button.dart';
 import 'package:screw/widgets/custom_text_form_field.dart';
 
 class CustomForm extends StatefulWidget {
-  const CustomForm({super.key, required this.isLoading});
-  final bool isLoading;
+  const CustomForm({super.key, });
   @override
   State<CustomForm> createState() => _CustomFormState();
 }
@@ -33,16 +32,20 @@ class _CustomFormState extends State<CustomForm> {
             ),
           ),
           SizedBox(height: 20),
-          CustomButton(
-            isLoading: widget.isLoading,
-            text: "اضافه اللاعب",
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                PlayerModel player = PlayerModel(name: name!);
-                print(name);
-                BlocProvider.of<AddPlayerCubit>(context).AddPlayer(player);
-              }
+          BlocBuilder<AddPlayerCubit, AddPlayerState>(
+            builder: (context, state) {
+              return CustomButton(
+                      isLoading: state is AddPlayerLoading?true:false,
+                      text: "اضافه اللاعب",
+                      onTap: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          PlayerModel player = PlayerModel(name: name!);
+                          print(name);
+                          BlocProvider.of<AddPlayerCubit>(context).AddPlayer(player);
+                        }
+                      },
+                    );
             },
           ),
         ],

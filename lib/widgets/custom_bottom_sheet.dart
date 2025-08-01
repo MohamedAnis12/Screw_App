@@ -24,7 +24,9 @@ class CustomBottomSheet extends StatelessWidget {
       
         },
         builder: (context, state) {
-          return CustomForm(isLoading: state is AddPlayerLoading?true:false);
+          return AbsorbPointer(
+            absorbing: state is AddPlayerLoading?true:false,
+            child: CustomForm());
         },
       ),
     );
