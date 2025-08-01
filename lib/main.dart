@@ -11,8 +11,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Bloc.observer=SimpleBlocObserver();
-  await Hive.openBox<PlayerModel>(kmodelBox);
   Hive.registerAdapter(PlayerModelAdapter());
+  await Hive.openBox<PlayerModel>(kmodelBox);
   runApp(ScrewApp());
 }
 
@@ -21,12 +21,9 @@ class ScrewApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => AddPlayerCubit())],
-      child: MaterialApp(
-        home: HomeView(),
-        theme: ThemeData(fontFamily: "Playpen Sans Arabic"),
-      ),
+    return MaterialApp(
+      home: HomeView(),
+      theme: ThemeData(fontFamily: "Playpen Sans Arabic"),
     );
   }
 }

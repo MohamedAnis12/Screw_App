@@ -9,21 +9,24 @@ class CustomBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddPlayerCubit, AddPlayerState>(
-      listener: (context, state) {
-        if(state is AddPlayerFailure)
-        {
-          print("error ${state.errorMessage}");
-        }
-        if(state is AddPlayerSuccess)
-        {
-          Navigator.pop(context);
-        }
-
-      },
-      builder: (context, state) {
-        return CustomForm(isLoading: state is AddPlayerLoading?true:false);
-      },
+    return BlocProvider(
+      create: (context) => AddPlayerCubit(),
+      child: BlocConsumer<AddPlayerCubit, AddPlayerState>(
+        listener: (context, state) {
+          if(state is AddPlayerFailure)
+          {
+            print("error ${state.errorMessage}");
+          }
+          if(state is AddPlayerSuccess)
+          {
+            Navigator.pop(context);
+          }
+      
+        },
+        builder: (context, state) {
+          return CustomForm(isLoading: state is AddPlayerLoading?true:false);
+        },
+      ),
     );
   }
 }

@@ -8,7 +8,7 @@ class SimpleBlocObserver implements BlocObserver {
 
   @override
   void onClose(BlocBase bloc) {
-    // TODO: implement onClose
+    print("addplayer cubit closed");
   }
 
   @override
