@@ -1,41 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:screw/widgets/custom_button.dart';
-import 'package:screw/widgets/custom_text_form_field.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:screw/cubits/add_player_cubit/add_player_cubit.dart';
 
-class CustomBottomSheet extends StatefulWidget {
+import 'package:screw/widgets/custome_form.dart';
+
+class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({super.key});
 
   @override
-  State<CustomBottomSheet> createState() => _CustomBottomSheetState();
-}
-
-class _CustomBottomSheetState extends State<CustomBottomSheet> {
-  final GlobalKey<FormState> formKey = GlobalKey();
-
-  @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      autovalidateMode: AutovalidateMode.disabled,
-      child: Column(
-        children: [
-          SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CustomTextFormField(hint: "name"),
-          ),
-          SizedBox(height: 20),
-          CustomButton(
-            text: "اضافه اللاعب",
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                Navigator.pop(context);
-              }
-            },
-          ),
-        ],
-      ),
+    return BlocConsumer<AddPlayerCubit, AddPlayerState>(
+      listener: (context, state) {
+        if(state is AddPlayerFailure)
+        {
+          print("error ${state.errorMessage}");
+        }
+        if(state is AddPlayerSuccess)
+        {
+          Navigator.pop(context);
+        }
+
+      },
+      builder: (context, state) {
+        return CustomForm(isLoading: state is AddPlayerLoading?true:false);
+      },
     );
   }
 }
