@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:screw/constants.dart';
+import 'package:screw/models/player_model.dart';
 import 'package:screw/widgets/custom_text.dart';
 import 'package:screw/widgets/custome_icon.dart';
 
 class PlayerCard extends StatelessWidget {
-  const PlayerCard({super.key});
-
+  const PlayerCard({super.key, required this.player});
+final PlayerModel player;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,8 +24,10 @@ class PlayerCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CustomText(text: "name", fontSize: 16, color: Colors.white),
-              CustomeIcon()
+              CustomText(text: player.name, fontSize: 16, color: Colors.white),
+              CustomeIcon(onTap: (){
+              
+              },)
             ],
           ),
         ),

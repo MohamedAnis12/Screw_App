@@ -12,9 +12,9 @@ class AddPlayerCubit extends Cubit<AddPlayerState> {
     emit(AddPlayerLoading());
     try {
       var playerBox = Hive.box<PlayerModel>(kmodelBox);
+      await playerBox.add(player);
       print("addplayersuccess");
       emit(AddPlayerSuccess());
-      await playerBox.add(player);
     } catch (e) {
       emit(AddPlayerFailure(e.toString()));
     }

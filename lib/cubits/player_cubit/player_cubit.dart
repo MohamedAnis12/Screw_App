@@ -8,9 +8,10 @@ part 'player_state.dart';
 
 class PlayerCubit extends Cubit<PlayerState> {
   PlayerCubit() : super(PlayerInitial());
-
+  List<PlayerModel>? players;
   feashDate() {
     var player = Hive.box<PlayerModel>(kmodelBox);
-    emit(PlayerSuccess(player.values.toList()));
+    players = player.values.toList();
+    emit(PlayerSuccess(players!));
   }
 }
